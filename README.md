@@ -1,10 +1,9 @@
 ---
 
-# Friends Info — 初期功能期望書
-
+# Friends Info
 ---
 
-## 一、產品目標（Product Goal）
+## 一、目標（Product Goal）
 
 打造一個讓使用者能夠：
 
