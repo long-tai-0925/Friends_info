@@ -34,5 +34,14 @@ email：(或同步登入的email)
 可勾選項：有新的使用者後通知我
 ```當有新的使用者登入時，寄送Email```
 
-顯示API
-``` https://api.example.com/get/user_MD5_HASH ```
+顯示API：
+``` https://api.example.com/get/user_Tokem```
+回傳值：
+```json
+{
+  "name": "Friends",
+  "cn_name": "朋友",
+  "links": "https://example.com/ ",
+  "proflie: "簡介測試"
+}
+```
