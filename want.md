@@ -1,5 +1,3 @@
-以下為整理後的 **純 Markdown（.md）版本**，已降低表情符號使用，適合直接放入文件或 GitHub：
-
 ---
 
 # Friends Info — 初期功能期望書
@@ -112,8 +110,6 @@ A 申請加入 B 的好友清單
 * 可選同步 Gravatar
 
 設定：
-
-* 是否公開（Public / Private）
 * 是否使用 slug（預設英文名稱）
 
 ---
@@ -309,25 +305,5 @@ ORDER BY
 * Private 使用者不可透過 Public API 存取
 * 僅關係雙方可操作資料
 * Email token 建議有效期限 24 小時
-
----
-
-## 十一、MVP 範圍
-
-必做：
-
-* 登入（Magic Link）
-* 個人資料管理
-* 好友邀請 / 申請
-* Email 同意機制
-* 好友清單顯示
-* Public API
-
-延後：
-
-* 好友分類
-* Webhook
-* 即時通知
-* 社交互動功能
 
 ---
