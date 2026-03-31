@@ -1,0 +1,26 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "friends-info",
+	"main": "src/index.ts",
+	"compatibility_date": "2026-03-10",
+	"observability": {
+		"enabled": true
+	},
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
+
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "friends-info-db",
+			"database_id": "01a1f5b2-aac7-41e8-8469-0446f30e3e09"
+		}
+	],
+  	"kv_namespaces": [
+    	{
+      		"binding": "TOKENS",
+      		"id": "93258698afda45efa38aee2ed5d2d4d4"
+    	}
+  	]
+}

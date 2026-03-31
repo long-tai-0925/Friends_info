@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Friends Info</title>
+</head>
+<body>
+  <h1>Friends Info</h1>
+
+  <input id="email" placeholder="Enter email" />
+  <button onclick="login()">Login</button>
+
+  <h2>Friends</h2>
+  <ul id="friends"></ul>
+
+<script>
+  let userId = null;
+  const API = "http://localhost:8787";
+
+  async function login() {
+    const email = document.getElementById("email").value;
+
+    const res = await fetch(API + "/auth/send-magic-link", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ email })
+    });
+
+    const data = await res.json();
+
+    alert("Magic link generated! 請點擊 console 裡的連結");
+
+    console.log("👉 點這個登入:", data.loginLink);
+  }
+
+  // 👉 自動登入（從 URL token）
+  async function autoLogin() {
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get("token");
+
+    if (!token) return;
+
+    const res = await fetch(API + "/auth/verify?token=" + token);
+    const data = await res.json();
+
+    if (data.userId) {
+      userId = data.userId;
+      alert("登入成功 🎉");
+
+      loadFriends();
+    }
+  }
+
+  async function loadFriends() {
+    const res = await fetch(API + "/friends/" + userId);
+    const data = await res.json();
+
+    const list = document.getElementById("friends");
+    list.innerHTML = "";
+
+    data.results.forEach(f => {
+      const li = document.createElement("li");
+      li.innerText = f.email;
+      list.appendChild(li);
+    });
+  }
+
+  // 👉 頁面載入時自動檢查
+  autoLogin();
+</script>
+</body>
+</html>
